@@ -633,7 +633,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/pako@npm:^2.0.0":
+"@types/pako@npm:^2.0.3":
   version: 2.0.3
   resolution: "@types/pako@npm:2.0.3"
   checksum: 0746dd5d29eccf5b2e6cceb3ccb093851219e78bd2e2e20d25757e247987139e061e5d4ba37cb5295493f06e3c683c74f8876011cd8a3f3748a09244fbc841d9
@@ -1877,14 +1877,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-png@npm:^6.1.0":
-  version: 6.2.0
-  resolution: "fast-png@npm:6.2.0"
+"fast-png@npm:^6.2.0":
+  version: 6.4.0
+  resolution: "fast-png@npm:6.4.0"
   dependencies:
-    "@types/pako": ^2.0.0
+    "@types/pako": ^2.0.3
     iobuffer: ^5.3.2
     pako: ^2.1.0
-  checksum: a3d004a20373f333ab1c00f4613034012e45074a3c0491685e7bae8959535e1ce64f478caa40cd57c392823f705647ef562f908d29d68b44a53973d6d704236d
+  checksum: c56a4f5d3cec57dd1e7436803541a3ca3c1cc562de5b32e80317943120cf3bee7efe8e5c8bc0e9af2f3582d9267e6c5c7aee017866f7341e9bdc11af7d8591b0
   languageName: node
   linkType: hard
 
@@ -2339,9 +2339,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"image-js@npm:^0.35.6":
-  version: 0.35.6
-  resolution: "image-js@npm:0.35.6"
+"image-js@npm:^0.37.0":
+  version: 0.37.0
+  resolution: "image-js@npm:0.37.0"
   dependencies:
     "@swiftcarrot/color-fns": ^3.2.0
     blob-util: ^2.0.2
@@ -2349,7 +2349,7 @@ __metadata:
     fast-bmp: ^2.0.1
     fast-jpeg: ^1.0.1
     fast-list: ^1.0.3
-    fast-png: ^6.1.0
+    fast-png: ^6.2.0
     has-own: ^1.0.1
     image-type: ^4.1.0
     is-array-type: ^1.0.0
@@ -2368,7 +2368,7 @@ __metadata:
     robust-point-in-polygon: ^1.0.3
     tiff: ^5.0.2
     web-worker-manager: ^0.2.0
-  checksum: c83e56707fa04e1b219042395221d52efb4084d07414899545a8d9cf34f58c1bd5c25cda59be9b24c45e31ce81f45908bbf7274ec2086aa5f447988367585d5d
+  checksum: a5aabb387f99f1d4d351cfc3214dee3ec5d3c029f32fd13d402d4a5423d33a2777b4402f85809869ba13816cc3dc9ada664db048965abcca34031a388d5e630c
   languageName: node
   linkType: hard
 
@@ -2450,7 +2450,7 @@ __metadata:
     express-rate-limit: ^7.5.0
     globals: ^15.14.0
     got: ^14.4.5
-    image-js: ^0.35.6
+    image-js: ^0.37.0
     nodemon: ^3.1.9
     prettier: ^3.4.2
     query-string: ^9.1.1
