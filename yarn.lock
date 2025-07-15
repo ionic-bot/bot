@@ -567,12 +567,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/better-sqlite3@npm:^7.6.12":
-  version: 7.6.12
-  resolution: "@types/better-sqlite3@npm:7.6.12"
+"@types/better-sqlite3@npm:^7.6.13":
+  version: 7.6.13
+  resolution: "@types/better-sqlite3@npm:7.6.13"
   dependencies:
     "@types/node": "*"
-  checksum: 1b6d8499cdc489cfd920ca96ae86c8f2f06fb5b41ca50830ba335aced8d3f040575c89d7d08ace33610eddf5fc310e5efd52ad9bef7aeb8b531ae483e0351725
+  checksum: 0b5bcca8d5441e0b234b2a120f6b6c8b8136fbe2a777a287ba72cf3c3c260abf5108e8b5cc3daae3fedd7f9f2f5a0abbb4cb72e45a4b82ebd6e1dd98fada3f7c
   languageName: node
   linkType: hard
 
@@ -2449,7 +2449,7 @@ __metadata:
   dependencies:
     "@eslint/eslintrc": ^3.2.0
     "@eslint/js": ^9.31.0
-    "@types/better-sqlite3": ^7.6.12
+    "@types/better-sqlite3": ^7.6.13
     "@types/express": ^5.0.3
     "@types/node": ^24.0.14
     "@types/tough-cookie": ^4.0.5
