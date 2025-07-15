@@ -2179,9 +2179,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"got@npm:^14.4.5":
-  version: 14.4.5
-  resolution: "got@npm:14.4.5"
+"got@npm:^14.4.7":
+  version: 14.4.7
+  resolution: "got@npm:14.4.7"
   dependencies:
     "@sindresorhus/is": ^7.0.1
     "@szmarczak/http-timer": ^5.0.1
@@ -2194,7 +2194,7 @@ __metadata:
     p-cancelable: ^4.0.1
     responselike: ^3.0.0
     type-fest: ^4.26.1
-  checksum: 873f20d9d7c0a432d2361abc9ed706a747bdba0299a70349895dcb988f9bc0b03ef276a2b96f25c81b90d6352496835fa2aeb8692541b9dd21c25919b48b0692
+  checksum: 776a4431ba331cacbfdcc91762ffb5970cf3a444f786c22009209395f3508c67dc30ea9dd60d7ec1fcf4a8d378b206de55e81c862f3c8916fc3b464fb1046a1a
   languageName: node
   linkType: hard
 
@@ -2446,7 +2446,7 @@ __metadata:
     express: ^5.1.0
     express-rate-limit: ^7.5.1
     globals: ^16.3.0
-    got: ^14.4.5
+    got: ^14.4.7
     image-js: ^0.37.0
     nodemon: ^3.1.9
     prettier: ^3.4.2
