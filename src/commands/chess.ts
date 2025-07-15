@@ -1,5 +1,5 @@
 import { ICommand } from '../interfaces/ICommand.js';
-import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChatInputCommandInteraction, Client, InteractionResponse, SlashCommandBuilder } from 'discord.js';
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChatInputCommandInteraction, Client, InteractionResponse, SlashCommandBuilder, MessageFlags } from 'discord.js';
 import { Chess } from 'chess.js';
 import canvasPkg, { Canvas, CanvasRenderingContext2D, loadImage, Image, registerFont } from 'canvas';
 const { createCanvas } = canvasPkg;
@@ -148,7 +148,7 @@ export default class implements ICommand {
                                 await interaction.editReply({ content: 'Confirmation not received within 1 minute, cancelling...', components: [] });
                             }
                         } else {
-                            await interaction.reply({ content: "Your opponent is already in a game!", ephemeral: true });
+                            await interaction.reply({ content: "Your opponent is already in a game!", flags: MessageFlags.Ephemeral });
                         }
                     } else {
                         const chess = new Chess();
@@ -195,10 +195,10 @@ export default class implements ICommand {
                         });
                     }
                 } else {
-                    await interaction.reply({ content: "You're already in a game!", ephemeral: true });
+                    await interaction.reply({ content: "You're already in a game!", flags: MessageFlags.Ephemeral });
                 }
             } else {
-                await interaction.reply({ content: "You can't play with yourself!", ephemeral: true });
+                await interaction.reply({ content: "You can't play with yourself!", flags: MessageFlags.Ephemeral });
             }
         }
         else if (interaction.options.getSubcommand() === 'move') {
@@ -246,12 +246,12 @@ export default class implements ICommand {
                         chesses.splice(chessIndex, 1);
                     }
 
-                    await interaction.reply({ content: "Move made!", ephemeral: true });
+                    await interaction.reply({ content: "Move made!", flags: MessageFlags.Ephemeral });
                 } catch {
-                    await interaction.reply({ content: "Illegal move!", ephemeral: true });
+                    await interaction.reply({ content: "Illegal move!", flags: MessageFlags.Ephemeral });
                 }
             } else {
-                await interaction.reply({ content: "You aren't in any game!", ephemeral: true });
+                await interaction.reply({ content: "You aren't in any game!", flags: MessageFlags.Ephemeral });
             }
         } else if (interaction.options.getSubcommand() === 'end') {
             const chessIndex = chesses.findIndex(x => x.white === interaction.user?.id || x.black === interaction.user?.id);
@@ -274,9 +274,9 @@ export default class implements ICommand {
 
                 await chess.message.edit({ content: 'Game ends!', files: [{ attachment: imageToSend, name: 'chess.png' }] });
                 chesses.splice(chessIndex, 1);
-                await interaction.reply({ content: "Game ended!", ephemeral: true });
+                await interaction.reply({ content: "Game ended!", flags: MessageFlags.Ephemeral });
             } else {
-                await interaction.reply({ content: "You aren't in any game!", ephemeral: true });
+                await interaction.reply({ content: "You aren't in any game!", flags: MessageFlags.Ephemeral });
             }
         }
     }

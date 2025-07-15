@@ -1,5 +1,5 @@
 import { ICommand } from '../interfaces/ICommand.js';
-import { ChatInputCommandInteraction, Client, PermissionFlagsBits, SlashCommandBuilder } from 'discord.js';
+import { ChatInputCommandInteraction, Client, PermissionFlagsBits, SlashCommandBuilder, MessageFlags } from 'discord.js';
 import { db } from '../glob.js';
 
 export default class implements ICommand {
@@ -65,7 +65,7 @@ export default class implements ICommand {
                 );
             }
 
-            interaction.reply({ content: "XP range update!", ephemeral: true })
+            interaction.reply({ content: "XP range update!", flags: MessageFlags.Ephemeral })
         } else if (interaction.options.getSubcommand() === 'levelrole') {
             const level = interaction.options.getNumber('level');
             const role = interaction.options.getRole('role');
@@ -85,17 +85,17 @@ export default class implements ICommand {
                         level,
                         interaction.guild?.id,
                     );
-                    interaction.reply({ content: "Level configured!", ephemeral: true });
+                    interaction.reply({ content: "Level configured!", flags: MessageFlags.Ephemeral });
                 } else {
-                    interaction.reply({ content: "Level already set to a role!", ephemeral: true });
+                    interaction.reply({ content: "Level already set to a role!", flags: MessageFlags.Ephemeral });
                 }
             } else {
                 const role = roles.find(x => x.level === level);
                 if (role) {
                     db.prepare('DELETE FROM rankroles WHERE role_id = ? AND guild_id = ?').run(role.role_id, interaction.guild?.id);
-                    interaction.reply({ content: "Level deconfigured!", ephemeral: true });
+                    interaction.reply({ content: "Level deconfigured!", flags: MessageFlags.Ephemeral });
                 } else {
-                    interaction.reply({ content: "Level not configured!", ephemeral: true });
+                    interaction.reply({ content: "Level not configured!", flags: MessageFlags.Ephemeral });
                 }
             }
         }

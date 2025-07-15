@@ -39,12 +39,8 @@ app.use((_req: express.Request, res: express.Response, next: express.NextFunctio
   next();
 });
 
-app.get('/leaderboard/*', async (req: Express.Request, res: Express.Response) => {
-  const guildId = Object.values(req.params)
-    .map((x) => x.replace(/\//g, ''))
-    .filter((x) => {
-      return x != '';
-    })[0];
+app.get('/leaderboard/:guildId', async (req: Express.Request, res: Express.Response) => {
+  const guildId = req.params.guildId;
   const page = !isNaN(Number(req.query?.page)) ? Number(req.query?.page) : 0;
   const quantityOn = !isNaN(Number(req.query?.quantity)) ? Number(req.query?.quantity) : 100
 

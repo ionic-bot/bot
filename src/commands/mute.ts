@@ -5,6 +5,7 @@ import {
 	SlashCommandBuilder,
 	ChatInputCommandInteraction,
 	GuildMemberRoleManager,
+	MessageFlags
 } from 'discord.js';
 
 export default class implements ICommand {
@@ -38,26 +39,26 @@ export default class implements ICommand {
 		if (!reason) return;
 
 		if (!time) {
-			await interaction.reply({ content: 'Please specify a valid time.', ephemeral: true });
+			await interaction.reply({ content: 'Please specify a valid time.', flags: MessageFlags.Ephemeral });
 			return;
 		}
 		// Check if the member has a higher role
 		if (
 			member.roles.highest.position >= (interaction.member.roles as GuildMemberRoleManager).highest.position
 		) {
-			await interaction.reply({ content: "You can't mute this user.", ephemeral: true });
+			await interaction.reply({ content: "You can't mute this user.", flags: MessageFlags.Ephemeral });
 			return;
 		}
 		if (
 			member.roles.highest.position >=
 			(await interaction.guild.members.fetch(client.user.id)).roles.highest.position
 		) {
-			await interaction.reply({ content: "I can't mute this user.", ephemeral: true });
+			await interaction.reply({ content: "I can't mute this user.", flags: MessageFlags.Ephemeral });
 			return;
 		}
 		// Mute
 		await member.timeout(time, reason);
-		await interaction.reply({ content: `${member.user.tag} has been muteed`, ephemeral: true });
+		await interaction.reply({ content: `${member.user.tag} has been muteed`, flags: MessageFlags.Ephemeral });
 	}
 }
 

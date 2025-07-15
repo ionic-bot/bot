@@ -5,6 +5,7 @@ import {
 	SlashCommandBuilder,
 	ChatInputCommandInteraction,
 	GuildMemberRoleManager,
+	MessageFlags,
 } from 'discord.js';
 
 export default class implements ICommand {
@@ -34,14 +35,14 @@ export default class implements ICommand {
 		if (
 			member.roles.highest.position >= (interaction.member.roles as GuildMemberRoleManager).highest.position
 		) {
-			await interaction.reply({ content: "You can't ban this user.", ephemeral: true });
+			await interaction.reply({ content: "You can't ban this user.", flags: MessageFlags.Ephemeral });
 			return;
 		}
 		if (
 			member.roles.highest.position >=
 			(await interaction.guild.members.fetch(client.user.id)).roles.highest.position
 		) {
-			await interaction.reply({ content: "I can't ban this user.", ephemeral: true });
+			await interaction.reply({ content: "I can't ban this user.", flags: MessageFlags.Ephemeral });
 			return;
 		}
 		// Ban

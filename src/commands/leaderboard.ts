@@ -1,5 +1,5 @@
 import { ICommand } from '../interfaces/ICommand.js';
-import { ChatInputCommandInteraction, Client, SlashCommandBuilder } from 'discord.js';
+import { ChatInputCommandInteraction, Client, SlashCommandBuilder, MessageFlags } from 'discord.js';
 
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
@@ -9,6 +9,6 @@ export default class implements ICommand {
 	guildOnly = true;
 
 	async run(_client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
-		await interaction.reply({ content: `You can visit the leaderboard [here](${process.env.WEBSITE}/leaderboard/${interaction.guildId}).`, ephemeral: true });
+		await interaction.reply({ content: `You can visit the leaderboard [here](${process.env.WEBSITE}/leaderboard/${interaction.guildId}).`, flags: MessageFlags.Ephemeral });
 	}
 }

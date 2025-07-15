@@ -5,6 +5,7 @@ import {
 	Client,
 	EmbedBuilder,
 	SlashCommandBuilder,
+	MessageFlags
 } from 'discord.js';
 
 export default class implements ICommand {
@@ -28,7 +29,7 @@ export default class implements ICommand {
 
 	async run(_client: Client, interaction: ChatInputCommandInteraction): Promise<void> {
 		if (interaction.channel?.type !== ChannelType.GuildText) {
-			await interaction.reply({ content: "Not implemented!", ephemeral: true });
+			await interaction.reply({ content: "Not implemented!", flags: MessageFlags.Ephemeral });
 			return;
 		}
 
@@ -47,7 +48,7 @@ export default class implements ICommand {
 			interaction.options.getString('answer11'),
 		].filter(x => x);
 		if (pollArgs.length == 1) {
-			await interaction.reply({ content: "Poll sent!", ephemeral: true })
+			await interaction.reply({ content: "Poll sent!", flags: MessageFlags.Ephemeral })
 			const pollMessage = await interaction.channel?.send('📊' + pollArgs[0]);
 			await pollMessage?.react('✅');
 			await pollMessage?.react('❌');
@@ -70,7 +71,7 @@ export default class implements ICommand {
 				options.push(reactions[i] + ': ' + option);
 			});
 			const embed = new EmbedBuilder().setDescription(options.join('\n'));
-			await interaction.reply({ content: "Poll sent!", ephemeral: true })
+			await interaction.reply({ content: "Poll sent!", flags: MessageFlags.Ephemeral })
 			const pollMessage = await interaction.channel?.send({
 				content: pollArgs[0] ?? '',
 				embeds: [embed],

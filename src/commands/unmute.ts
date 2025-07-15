@@ -5,6 +5,7 @@ import {
 	SlashCommandBuilder,
 	ChatInputCommandInteraction,
 	GuildMemberRoleManager,
+	MessageFlags
 } from 'discord.js';
 
 
@@ -32,18 +33,18 @@ export default class implements ICommand {
 		if (
 			member.roles.highest.position >= (interaction.member.roles as GuildMemberRoleManager).highest.position
 		) {
-			interaction.reply({ content: "You can't unmute this user.", ephemeral: true });
+			interaction.reply({ content: "You can't unmute this user.", flags: MessageFlags.Ephemeral });
 			return;
 		}
 		if (
 			member.roles.highest.position >=
 			(await interaction.guild.members.fetch(client.user.id)).roles.highest.position
 		) {
-			interaction.reply({ content: "I can't unmute this user.", ephemeral: true });
+			interaction.reply({ content: "I can't unmute this user.", flags: MessageFlags.Ephemeral });
 			return;
 		}
 		// Unmute
 		await member.timeout(null);
-		interaction.reply({ content: `${member.user.tag} has been unmuted`, ephemeral: true });
+		interaction.reply({ content: `${member.user.tag} has been unmuted`, flags: MessageFlags.Ephemeral });
 	}
 }

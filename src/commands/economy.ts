@@ -4,6 +4,7 @@ import {
 	Client,
 	SlashCommandBuilder,
 	ChatInputCommandInteraction,
+	MessageFlags
 } from 'discord.js';
 import { getRandomNumberBetween } from '../utils.js';
 
@@ -20,7 +21,7 @@ type YourStocks = {
 	cnm: number;
 }
 
-import jobData from '../../jobData.json' assert { type: 'json' };
+import jobData from '../../jobData.json' with { type: 'json' };
 
 export default class implements ICommand {
 	data = new SlashCommandBuilder()
@@ -123,7 +124,7 @@ export default class implements ICommand {
 			case 'set': {
 				if (interaction.user.id != process.env.OWNER_ID) {
 					await interaction.reply({
-						ephemeral: true,
+						flags: MessageFlags.Ephemeral,
 						content: 'This command can only be used by the bot owner.',
 					});
 					return;
@@ -132,7 +133,7 @@ export default class implements ICommand {
 				if (cash == null) {
 					await interaction.reply({
 						content: 'There was an error while executing this command!',
-						ephemeral: true
+						flags: MessageFlags.Ephemeral
 					});
 					return;
 				}
@@ -152,7 +153,7 @@ export default class implements ICommand {
 				if (cash == null) {
 					await interaction.reply({
 						content: 'There was an error while executing this command!',
-						ephemeral: true
+						flags: MessageFlags.Ephemeral
 					});
 					return;
 				}
@@ -285,7 +286,7 @@ export default class implements ICommand {
 				break;
 			default:
 				await interaction.reply({
-					ephemeral: true,
+					flags: MessageFlags.Ephemeral,
 					content: 'Command not implemented.',
 				});
 				break;

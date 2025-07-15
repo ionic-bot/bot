@@ -6,6 +6,7 @@ import {
 	SlashCommandBuilder,
 	ChatInputCommandInteraction,
 	GuildMemberRoleManager,
+	MessageFlags
 } from 'discord.js';
 
 
@@ -27,7 +28,7 @@ export default class implements ICommand {
 		if (!id) return;
 		const data = db.prepare('SELECT * FROM warns WHERE warn_id = ?').get(id) as { warn_id: string, guild_id: string, user_id: string, moderator_id: string, reason: string, time: number };
 		if (!data) {
-			interaction.reply({ content: "This warn doesn't exist.", ephemeral: true });
+			interaction.reply({ content: "This warn doesn't exist.", flags: MessageFlags.Ephemeral });
 			return;
 		}
 		const member = interaction.guild.members.cache.get(data.user_id);
@@ -36,11 +37,11 @@ export default class implements ICommand {
 			!member ||
 			member.roles.highest.position >= (interaction.member.roles as GuildMemberRoleManager).highest.position
 		) {
-			interaction.reply({ content: "You can't unwarn this user.", ephemeral: true });
+			interaction.reply({ content: "You can't unwarn this user.", flags: MessageFlags.Ephemeral });
 			return;
 		}
 		// Unwarn
 		db.prepare('DELETE FROM warns WHERE warn_id = ?').run(id);
-		interaction.reply({ content: 'Warn removed!', ephemeral: true });
+		interaction.reply({ content: 'Warn removed!', flags: MessageFlags.Ephemeral });
 	}
 }

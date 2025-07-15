@@ -1,4 +1,4 @@
-import { Client, Interaction } from 'discord.js';
+import { Client, Interaction, MessageFlags } from 'discord.js';
 
 import { commands, db } from '../glob.js';
 
@@ -16,9 +16,9 @@ export default async function (client: Client, interaction: Interaction) {
 		} catch (error) {
 			console.error(error);
 			if (interaction.replied || interaction.deferred) {
-				await interaction.followUp({ content: 'There was an error while executing this command!', ephemeral: true });
+				await interaction.followUp({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
 			} else {
-				await interaction.reply({ content: 'There was an error while executing this command!', ephemeral: true });
+				await interaction.reply({ content: 'There was an error while executing this command!', flags: MessageFlags.Ephemeral });
 			}
 		}
 	} else if (interaction.isModalSubmit()) {
@@ -31,7 +31,7 @@ export default async function (client: Client, interaction: Interaction) {
 			).run(
 				interaction.guild?.id, infoTag, infoContent
 			);
-			await interaction.reply({ content: "Created!", ephemeral: true });
+			await interaction.reply({ content: "Created!", flags: MessageFlags.Ephemeral });
 		}
 	}
 }

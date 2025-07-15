@@ -6,6 +6,7 @@ import {
 	SlashCommandBuilder,
 	ChatInputCommandInteraction,
 	GuildMemberRoleManager,
+	MessageFlags
 } from 'discord.js';
 import { SnowflakeUtil } from 'discord.js';
 
@@ -35,7 +36,7 @@ export default class implements ICommand {
 		if (
 			member.roles.highest.position >= (interaction.member.roles as GuildMemberRoleManager).highest.position
 		) {
-			interaction.reply({ content: "You can't warn this user.", ephemeral: true });
+			interaction.reply({ content: "You can't warn this user.", flags: MessageFlags.Ephemeral });
 			return;
 		}
 		// Warn
@@ -49,6 +50,6 @@ export default class implements ICommand {
 			reason,
 			Date.now(),
 		);
-		interaction.reply({ content: `${member.user.tag} has been warned`, ephemeral: true });
+		interaction.reply({ content: `${member.user.tag} has been warned`, flags: MessageFlags.Ephemeral });
 	}
 }

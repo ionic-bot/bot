@@ -4,6 +4,7 @@ import {
 	PermissionFlagsBits,
 	SlashCommandBuilder,
 	ChatInputCommandInteraction,
+	MessageFlags
 } from 'discord.js';
 
 export default class implements ICommand {
@@ -26,11 +27,11 @@ export default class implements ICommand {
 
 		const member = await interaction.guild.bans.fetch(memberId).catch(() => null);
 		if (!member) {
-			interaction.reply({ content: "That member isn't banned or doesn't exist.", ephemeral: true });
+			interaction.reply({ content: "That member isn't banned or doesn't exist.", flags: MessageFlags.Ephemeral });
 			return;
 		}
 		// Unban
 		await interaction.guild.bans.remove(memberId);
-		interaction.reply({ content: `${member.user.tag} has been unbanned`, ephemeral: true });
+		interaction.reply({ content: `${member.user.tag} has been unbanned`, flags: MessageFlags.Ephemeral });
 	}
 }
