@@ -212,7 +212,7 @@ export default class implements ICommand {
 
                     if (chess.black === 'auto') {
                         try {
-                            chess.chess.move(findBestMove(chess.chess));
+                            chess.chess.move(findRandomMove(chess.chess));
                         } catch {
                             return;
                         }
@@ -332,70 +332,8 @@ function drawMoves(ctx: CanvasRenderingContext2D, images: Images, coordPieces: C
         }
     });
 }
-
-
-// AI, thanks ChatGPT
-
-// The maximum depth for the minimax algorithm
-const MAX_DEPTH = 3;
-
-// Minimax algorithm with alpha-beta pruning
-function minimax(board: Chess, depth: number, alpha: number, beta: number, maximizingPlayer: boolean) {
-    if (depth === 0 || board.isGameOver()) {
-        return 0;
-    }
-
-    if (maximizingPlayer) {
-        let maxScore = -Infinity;
-        const moves = board.moves();
-
-        for (let i = 0; i < moves.length; i++) {
-            board.move(moves[i]);
-            maxScore = Math.max(maxScore, minimax(board, depth - 1, alpha, beta, false));
-            board.undo();
-
-            alpha = Math.max(alpha, maxScore);
-            if (alpha >= beta) {
-                break;
-            }
-        }
-
-        return maxScore;
-    } else {
-        let minScore = Infinity;
-        const moves = board.moves();
-
-        for (let i = 0; i < moves.length; i++) {
-            board.move(moves[i]);
-            minScore = Math.min(minScore, minimax(board, depth - 1, alpha, beta, true));
-            board.undo();
-
-            beta = Math.min(beta, minScore);
-            if (beta <= alpha) {
-                break;
-            }
-        }
-
-        return minScore;
-    }
+function findRandomMove(chess: Chess): string {
+    const moves = chess.moves();
+    return moves[Math.floor(Math.random() * moves.length)];
 }
 
-// Function to find the best move using the minimax algorithm
-function findBestMove(board: Chess) {
-    let bestMove = '';
-    let bestScore = -Infinity;
-    const moves = board.moves();
-
-    for (let i = 0; i < moves.length; i++) {
-        board.move(moves[i]);
-        const score = minimax(board, MAX_DEPTH, -Infinity, Infinity, false);
-        board.undo();
-
-        if (score > bestScore) {
-            bestScore = score;
-            bestMove = moves[i];
-        }
-    }
-
-    return bestMove;
-}
