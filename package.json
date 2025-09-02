@@ -44,7 +44,7 @@
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
     "express-rate-limit": "^8.0.1",
-    "got": "^14.4.7",
+    "got": "^14.4.8",
     "image-js": "^1.0.0",
     "query-string": "^9.2.2",
     "tough-cookie": "^6.0.0",
