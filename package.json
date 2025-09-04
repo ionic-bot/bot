@@ -43,7 +43,7 @@
     "discord.js": "^14.22.1",
     "dotenv": "^17.2.2",
     "express": "^5.1.0",
-    "express-rate-limit": "^8.0.1",
+    "express-rate-limit": "^8.1.0",
     "got": "^14.4.8",
     "image-js": "^1.0.0",
     "query-string": "^9.2.2",
