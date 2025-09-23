@@ -37,7 +37,7 @@
   "author": "Ionic",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "better-sqlite3": "^12.3.0",
+    "better-sqlite3": "^12.4.1",
     "canvas": "^3.2.0",
     "chess.js": "^1.4.0",
     "discord.js": "^14.22.1",
