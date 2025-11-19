@@ -11,7 +11,7 @@
     "@types/node": "^24.10.1",
     "@types/tough-cookie": "^4.0.5",
     "@types/uuid": "^11.0.0",
-    "@typescript-eslint/eslint-plugin": "^8.46.4",
+    "@typescript-eslint/eslint-plugin": "^8.47.0",
     "@typescript-eslint/parser": "^8.47.0",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
