@@ -47,7 +47,7 @@
     "got": "^14.6.6",
     "image-js": "^1.4.0",
     "query-string": "^9.3.1",
-    "tough-cookie": "^6.0.0",
+    "tough-cookie": "^6.0.1",
     "uuid": "^13.0.0",
     "ws": "^8.19.0"
   }
