@@ -1497,10 +1497,10 @@ ignore@^7.0.5:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-7.0.5.tgz#4cb5f6cd7d4c7ab0365738c7aea888baa6d7efd9"
   integrity sha512-Hs59xBNfUIunMFgWAbGX5cq6893IbWg4KnrjbYwX3tx0ztorVgTDA6B2sxf8ejHJ4wz8BqGUMYlnzNBer5NvGg==
 
-image-js@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/image-js/-/image-js-1.4.0.tgz#1ddcaa8576b1cbc789a1cfffa7236c817c97b359"
-  integrity sha512-X3CGc5t936NUME2yfJvEyvkVHc5Kbwvt6VxufIQf5o53nlRBxp1OpatdxDdvRPkArqUw3qRA1HxOIvUE/nniXA==
+image-js@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/image-js/-/image-js-1.5.0.tgz#846e1ee7aca231af2d702932816c7c0df7647426"
+  integrity sha512-ZE/e7wlb5732r3wHXcPtRiirODk/YKYBKzpffd3qfYD1wUA0PrYewYOHLOJGQoi1vj6G9TAQpHIkxV91qm5FBQ==
   dependencies:
     bresenham-zingl "^0.2.5"
     colord "^2.9.3"
@@ -1519,11 +1519,12 @@ image-js@^1.4.0:
     ml-regression-polynomial-2d "^1.0.0"
     ml-spectra-processing "^14.18.2"
     robust-point-in-polygon "^1.0.3"
-    skia-canvas "^3.0.8"
     ssim.js "^3.5.0"
     tiff "^7.1.3"
     ts-pattern "^5.9.0"
     uint8-base64 "^1.0.0"
+  optionalDependencies:
+    skia-canvas "^3.0.8"
 
 image-type@^4.1.0:
   version "4.1.0"
