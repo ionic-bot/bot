@@ -1497,10 +1497,10 @@ ignore@^7.0.5:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-7.0.5.tgz#4cb5f6cd7d4c7ab0365738c7aea888baa6d7efd9"
   integrity sha512-Hs59xBNfUIunMFgWAbGX5cq6893IbWg4KnrjbYwX3tx0ztorVgTDA6B2sxf8ejHJ4wz8BqGUMYlnzNBer5NvGg==
 
-image-js@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/image-js/-/image-js-1.5.0.tgz#846e1ee7aca231af2d702932816c7c0df7647426"
-  integrity sha512-ZE/e7wlb5732r3wHXcPtRiirODk/YKYBKzpffd3qfYD1wUA0PrYewYOHLOJGQoi1vj6G9TAQpHIkxV91qm5FBQ==
+image-js@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/image-js/-/image-js-1.6.0.tgz#29e89ff391a72a6a87eca412550df50d9e3647b6"
+  integrity sha512-v9/cvtQnkhRO1pxharqncRy2UaBHii/JC48I3BT7VX/7pjedP00xLeFIPzLYCYSG9SPeve4uEHHE0phpQDPLjg==
   dependencies:
     bresenham-zingl "^0.2.5"
     colord "^2.9.3"
